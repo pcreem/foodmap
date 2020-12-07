@@ -1,0 +1,13 @@
+.app__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5vw;
+}
+
+.app__navRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
