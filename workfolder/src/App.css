@@ -11,3 +11,19 @@
   align-items: center;
 }
 
+.app__info {
+  display: flex;
+  padding: 20px 5vw;
+  justify-content: space-between;
+}
+
+.app__infoLeft {
+  flex: 0.8;
+}
+
+.app__infoRight {
+  flex: 0.2;
+  padding: 20px 0 20px 20px;
+  justify-content: center;
+
+}

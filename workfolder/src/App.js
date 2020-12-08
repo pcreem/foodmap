@@ -10,14 +10,15 @@ import {
 import { auth, provider } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
+import Map from "./Map";
+import InfoSender from "./InfoSender";
+import List from "./List";
+
 
 function App() {
   const [country, setInputCountry] = useState("worldwide");
-  const [countryInfo, setCountryInfo] = useState({});
   const [countries, setCountries] = useState([]);
   const [mapCountries, setMapCountries] = useState([]);
-  const [tableData, setTableData] = useState([]);
-  const [casesType, setCasesType] = useState("cases");
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
 
@@ -69,7 +70,6 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setInputCountry(countryCode);
-        setCountryInfo(data);
         setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
         setMapZoom(4);
       });
@@ -100,12 +100,20 @@ function App() {
         </div>
       </div>
 
-      {/*left*/}
-      {/*Map*/}
 
-      {/*right*/}
-      {/*InfoSender*/}
-      {/*List*/}
+      <div className="app__info">
+        <div className="app__infoLeft">
+          <Map
+            center={mapCenter}
+            zoom={mapZoom}
+          />
+        </div>
+
+        <div className="app__infoRight">
+          <InfoSender />
+          <List />
+        </div>
+      </div>
 
     </div>
   );
