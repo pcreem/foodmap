@@ -18,7 +18,7 @@
 }
 
 .app__infoLeft {
-  flex: 0.8;
+  flex: 1;
 }
 
 .app__infoRight {
@@ -26,4 +26,19 @@
   padding: 20px 0 20px 20px;
   justify-content: center;
 
+}
+
+@media (max-width:990px){
+  .app__info {
+    flex-direction: column-reverse;
+  }
+
+  .app__infoLeft,
+  .app__infoRight {
+    flex:1;
+  }
+  .app__infoRight {
+    margin-top: 20px;
+    padding: 0;
+  }
 }

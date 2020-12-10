@@ -13,14 +13,15 @@ import { actionTypes } from "./reducer";
 import Map from "./Map";
 import InfoSender from "./InfoSender";
 import List from "./List";
+import db from "./firebase";
 
 
 function App() {
   const [country, setInputCountry] = useState("worldwide");
   const [countries, setCountries] = useState([]);
-  const [mapCountries, setMapCountries] = useState([]);
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
+  const [list, setList] = useState([])
 
   const [{ user }, dispatch] = useStateValue();
   const signIn = () => {
@@ -52,7 +53,6 @@ function App() {
           }));
 
           setCountries(countries);
-          setMapCountries(data);
         });
     };
 
@@ -76,10 +76,22 @@ function App() {
   };
 
 
+  useEffect(() => {
+    db
+      .collection('freesource')
+      .onSnapshot(snapshot => (
+        setList(snapshot.docs.map(doc => ({
+          id: doc.id,
+          data: doc.data()
+        })))
+      ))
+  }, [])
+
+
   return (
     <div className="app">
       <div className="app__nav">
-        <h3>FreeFood</h3>
+        <i>Food for the need in pandemic</i>
         <div className="app__navRight">
           <FormControl className="app__navDropdown">
             <Select
@@ -106,13 +118,16 @@ function App() {
           <Map
             center={mapCenter}
             zoom={mapZoom}
+            list={list}
           />
         </div>
+        {user &&
+          <div className="app__infoRight">
+            <InfoSender />
+            <List list={list} />
+          </div>
+        }
 
-        <div className="app__infoRight">
-          <InfoSender />
-          <List />
-        </div>
       </div>
 
     </div>

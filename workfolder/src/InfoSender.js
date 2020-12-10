@@ -25,7 +25,7 @@ function InfoSender() {
 
     if (name && address && latlong && openhours && contact) {
       db.collection('freesource').add({
-        // user: user.uid,
+        user: user.uid,
         name,
         address,
         lat,
@@ -37,13 +37,13 @@ function InfoSender() {
       })
     }
 
-    if (name) {
-      db.collection('freesource').add({
-        // user: user.uid,
-        name,
-        created: firebase.firestore.FieldValue.serverTimestamp(),
-      })
-    }
+    // if (name) {
+    //   db.collection('freesource').add({
+    //     user: user.uid,
+    //     name,
+    //     created: firebase.firestore.FieldValue.serverTimestamp(),
+    //   })
+    // }
 
     setName("")
     setAddress("")
@@ -84,7 +84,7 @@ function InfoSender() {
         <input
           value={restrict}
           onChange={(e) => setRestrict(e.target.value)}
-          placeholder="requirment"
+          placeholder="requirement"
         />
         <input
           value={contact}
