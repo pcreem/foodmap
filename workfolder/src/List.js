@@ -5,19 +5,6 @@ import { useStateValue } from "./StateProvider";
 
 function List({ list }) {
   const [{ user }, dispatch] = useStateValue();
-  // const [list, setList] = useState([])
-
-  // useEffect(() => {
-  //   db
-  //     .collection('freesource')
-  //     .onSnapshot(snapshot => (
-  //       setList(snapshot.docs.map(doc => ({
-  //         id: doc.id,
-  //         data: doc.data()
-  //       })))
-  //     ))
-  // }, [])
-
   const deleteItem = (id) => {
     db.collection("freesource").doc(id).delete().then(function () {
       console.log("Document successfully deleted!");

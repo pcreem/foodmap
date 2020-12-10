@@ -4,6 +4,7 @@
     color: #6a5d5d;
     background-color: white;
     height: 190px; 
+    border-radius: 10px;
   }
   
   .list tr {

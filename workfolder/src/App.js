@@ -7,6 +7,7 @@ import {
   Select,
   Button
 } from "@material-ui/core";
+import GitHubIcon from '@material-ui/icons/GitHub';
 import { auth, provider } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
@@ -19,8 +20,9 @@ import db from "./firebase";
 function App() {
   const [country, setInputCountry] = useState("worldwide");
   const [countries, setCountries] = useState([]);
-  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
-  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCenter, setMapCenter] = useState({ lat: 49.260380, lng: -123.113400 });
+  // lat: 34.80746, lng: -40.4796 
+  const [mapZoom, setMapZoom] = useState(11);
   const [list, setList] = useState([])
 
   const [{ user }, dispatch] = useStateValue();
@@ -91,9 +93,9 @@ function App() {
   return (
     <div className="app">
       <div className="app__nav">
-        <i>Food for the need in pandemic</i>
+        <h1>Find food support in your country</h1>
         <div className="app__navRight">
-          <FormControl className="app__navDropdown">
+          {/* <FormControl className="app__navDropdown">
             <Select
               variant="outlined"
               value={country}
@@ -104,7 +106,7 @@ function App() {
                 <MenuItem value={country.value}>{country.name}</MenuItem>
               ))}
             </Select>
-          </FormControl>
+          </FormControl> */}
 
           <Button onClick={user ? signOut : signIn}>
             {user ? 'SignOut' : 'SignIn'}
@@ -129,7 +131,15 @@ function App() {
         }
 
       </div>
-
+      <div className="app__footer">
+        <a
+          href="https://github.com/pcreem"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitHubIcon />
+        </a>
+      </div>
     </div>
   );
 }

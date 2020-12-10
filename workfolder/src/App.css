@@ -3,6 +3,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 5vw;
+  color: #fff;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.MuiButton-label {
+  background-color: #eff2f5;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .app__navRight {
@@ -26,6 +34,12 @@
   padding: 20px 0 20px 20px;
   justify-content: center;
 
+}
+
+.app__footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 @media (max-width:990px){

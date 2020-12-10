@@ -31,8 +31,9 @@ function Map({ center, zoom, list }) {
                 <br />
                 Openhours: {item.data.openhours}
                 <br />
-                note: {item.data.restrict}
-                <br />
+                {item.data.restrict && (<>note: {item.data.restrict}
+                  <br /></>)}
+
                 Contact: {item.data.contact}
               </div>
 

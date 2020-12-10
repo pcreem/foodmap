@@ -37,14 +37,6 @@ function InfoSender() {
       })
     }
 
-    // if (name) {
-    //   db.collection('freesource').add({
-    //     user: user.uid,
-    //     name,
-    //     created: firebase.firestore.FieldValue.serverTimestamp(),
-    //   })
-    // }
-
     setName("")
     setAddress("")
     setLatlong("")
@@ -67,19 +59,19 @@ function InfoSender() {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           placeholder="address"
-        // required
+          required
         />
         <input
           value={latlong}
           onChange={(e) => setLatlong(e.target.value)}
           placeholder="lat, long"
-        // required
+          required
         />
         <input
           value={openhours}
           onChange={(e) => setOpenhours(e.target.value)}
           placeholder="openhours"
-        // required
+          required
         />
         <input
           value={restrict}
@@ -90,7 +82,7 @@ function InfoSender() {
           value={contact}
           onChange={(e) => setContact(e.target.value)}
           placeholder="contact info"
-        // required
+          required
         />
 
         <button onClick={handleSubmit} type="submit">
