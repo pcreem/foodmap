@@ -1,4 +1,4 @@
-# Amazon-clone
+# Food map
 ![Demo Image.](https://i.ibb.co/N1ncR6f/mappage.png)
 
 ## Demo
